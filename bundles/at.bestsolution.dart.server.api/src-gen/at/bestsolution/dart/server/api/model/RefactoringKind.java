@@ -1,0 +1,13 @@
+package at.bestsolution.dart.server.api.model;
+
+public enum RefactoringKind {
+	CONVERT_GETTER_TO_METHOD
+	,CONVERT_METHOD_TO_GETTER
+	,EXTRACT_LOCAL_VARIABLE
+	,EXTRACT_METHOD
+	,INLINE_LOCAL_VARIABLE
+	,INLINE_METHOD
+	,MOVE_FILE
+	,RENAME
+	,SORT_MEMBERS
+}

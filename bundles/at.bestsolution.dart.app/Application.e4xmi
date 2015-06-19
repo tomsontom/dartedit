@@ -5,7 +5,15 @@
     <tags>efx-lightweight-dialogs</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_n-A3kBO4EeWDScKklswuYA" elementId="at.bestsolution.dart.app.partsashcontainer.0" horizontal="true">
       <children xsi:type="basic:Part" xmi:id="_nMO1UBO4EeWDScKklswuYA" elementId="at.bestsolution.dart.app.part.0" containerData="100" contributionURI="bundleclass://at.bestsolution.dart.app/at.bestsolution.dart.app.parts.ProjectExplorer"/>
-      <children xsi:type="basic:PartStack" xmi:id="_qAa0MBO4EeWDScKklswuYA" elementId="at.bestsolution.dart.app.editorstack" containerData="400"/>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_WSfLABZrEeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.partsashcontainer.1" containerData="400">
+        <tags>fx_fixedLayout</tags>
+        <children xsi:type="basic:Part" xmi:id="_fVVrkBZrEeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.part.2" contributionURI="bundleclass://org.eclipse.fx.code.compensator.editor/org.eclipse.fx.code.compensator.editor.EditorNavigation"/>
+        <children xsi:type="basic:PartStack" xmi:id="_qAa0MBO4EeWDScKklswuYA" elementId="at.bestsolution.dart.app.editorstack" containerData="400">
+          <persistedState key="fx_layout_grab_horizontal" value="true"/>
+          <persistedState key="fx_layout_grab_vertical" value="true"/>
+        </children>
+      </children>
+      <children xsi:type="basic:Part" xmi:id="_8KAmQBZqEeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.part.1" toBeRendered="false" containerData="100" contributionURI="bundleclass://org.eclipse.fx.code.compensator.editor/org.eclipse.fx.code.compensator.editor.FileOutlineViewer"/>
     </children>
     <variables>activeInput</variables>
   </children>

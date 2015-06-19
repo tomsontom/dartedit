@@ -1,0 +1,17 @@
+package at.bestsolution.dart.app
+
+import javafx.scene.layout.StackPane
+import org.eclipse.fx.ui.controls.stage.DefaultTrimmedWindowPane
+import org.eclipse.fx.ui.panes.FillLayoutPane
+import javafx.scene.layout.Pane
+import javafx.scene.layout.BorderPane
+
+component DartEditorWindow {
+	DefaultTrimmedWindowPane {
+		content : BorderPane {
+			center : FillLayoutPane {
+				^id : "client-area"
+			}
+		}
+	}
+}

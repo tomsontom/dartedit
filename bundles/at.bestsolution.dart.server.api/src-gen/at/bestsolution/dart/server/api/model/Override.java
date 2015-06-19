@@ -2,11 +2,11 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class Override {
-	private int offset;
-	private int length;
-	private OverriddenMember superclassMember;
-	private OverriddenMember[] interfaceMembers;
+public class Override  {
+	private int offset ;
+	private int length ;
+	private OverriddenMember superclassMember ;
+	private OverriddenMember[] interfaceMembers ;
 	
 	public Override() {
 	}
@@ -38,5 +38,9 @@ public class Override {
 
 	public void setInterfaceMembers(OverriddenMember[] interfaceMembers) {
 		this.interfaceMembers = interfaceMembers;
+	}
+	
+	public String toString() {
+		return "Override@"+hashCode()+"[offset = "+offset+", length = "+length+", superclassMember = "+superclassMember+", interfaceMembers = "+interfaceMembers+"]";
 	}
 }

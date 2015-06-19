@@ -2,12 +2,12 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class Location {
-	private java.lang.String file;
-	private int offset;
-	private int length;
-	private int startLine;
-	private int startColumn;
+public class Location  {
+	private java.lang.String file ;
+	private int offset ;
+	private int length ;
+	private int startLine ;
+	private int startColumn ;
 	
 	public Location() {
 	}
@@ -46,5 +46,9 @@ public class Location {
 
 	public void setStartColumn(int startColumn) {
 		this.startColumn = startColumn;
+	}
+	
+	public String toString() {
+		return "Location@"+hashCode()+"[file = "+file+", offset = "+offset+", length = "+length+", startLine = "+startLine+", startColumn = "+startColumn+"]";
 	}
 }

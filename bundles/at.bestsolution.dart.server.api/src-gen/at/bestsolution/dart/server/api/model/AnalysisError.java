@@ -2,12 +2,12 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class AnalysisError {
-	private AnalysisErrorSeverity severity;
-	private AnalysisErrorType type;
-	private Location location;
-	private String message;
-	private String correction;
+public class AnalysisError  {
+	private AnalysisErrorSeverity severity ;
+	private AnalysisErrorType type ;
+	private Location location ;
+	private String message ;
+	private String correction ;
 	
 	public AnalysisError() {
 	}
@@ -46,5 +46,9 @@ public class AnalysisError {
 
 	public void setCorrection(String correction) {
 		this.correction = correction;
+	}
+	
+	public String toString() {
+		return "AnalysisError@"+hashCode()+"[severity = "+severity+", type = "+type+", location = "+location+", message = "+message+", correction = "+correction+"]";
 	}
 }

@@ -2,11 +2,11 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class SearchResult {
-	private Location location;
-	private SearchResultKind kind;
-	private boolean isPotential;
-	private Element[] path;
+public class SearchResult  {
+	private Location location ;
+	private SearchResultKind kind ;
+	private boolean isPotential ;
+	private Element[] path ;
 	
 	public SearchResult() {
 	}
@@ -38,5 +38,9 @@ public class SearchResult {
 
 	public void setPath(Element[] path) {
 		this.path = path;
+	}
+	
+	public String toString() {
+		return "SearchResult@"+hashCode()+"[location = "+location+", kind = "+kind+", isPotential = "+isPotential+", path = "+path+"]";
 	}
 }

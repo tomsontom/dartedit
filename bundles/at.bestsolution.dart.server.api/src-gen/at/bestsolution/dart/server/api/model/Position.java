@@ -2,9 +2,9 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class Position {
-	private java.lang.String file;
-	private int offset;
+public class Position  {
+	private java.lang.String file ;
+	private int offset ;
 	
 	public Position() {
 	}
@@ -22,5 +22,9 @@ public class Position {
 
 	public void setOffset(int offset) {
 		this.offset = offset;
+	}
+	
+	public String toString() {
+		return "Position@"+hashCode()+"[file = "+file+", offset = "+offset+"]";
 	}
 }

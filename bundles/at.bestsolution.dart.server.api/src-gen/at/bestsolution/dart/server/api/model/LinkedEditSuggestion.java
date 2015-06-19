@@ -2,9 +2,9 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class LinkedEditSuggestion {
-	private String value;
-	private LinkedEditSuggestionKind kind;
+public class LinkedEditSuggestion  {
+	private String value ;
+	private LinkedEditSuggestionKind kind ;
 	
 	public LinkedEditSuggestion() {
 	}
@@ -22,5 +22,9 @@ public class LinkedEditSuggestion {
 
 	public void setKind(LinkedEditSuggestionKind kind) {
 		this.kind = kind;
+	}
+	
+	public String toString() {
+		return "LinkedEditSuggestion@"+hashCode()+"[value = "+value+", kind = "+kind+"]";
 	}
 }

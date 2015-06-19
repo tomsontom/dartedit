@@ -2,10 +2,10 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class RequestError {
-	private RequestErrorCode code;
-	private String message;
-	private String stackTrace;
+public class RequestError  {
+	private RequestErrorCode code ;
+	private String message ;
+	private String stackTrace ;
 	
 	public RequestError() {
 	}
@@ -30,5 +30,9 @@ public class RequestError {
 
 	public void setStackTrace(String stackTrace) {
 		this.stackTrace = stackTrace;
+	}
+	
+	public String toString() {
+		return "RequestError@"+hashCode()+"[code = "+code+", message = "+message+", stackTrace = "+stackTrace+"]";
 	}
 }

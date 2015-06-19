@@ -2,18 +2,18 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class HoverInformation {
-	private int offset;
-	private int length;
-	private String containingLibraryPath;
-	private String containingLibraryName;
-	private String containingClassDescription;
-	private String dartdoc;
-	private String elementDescription;
-	private String elementKind;
-	private String parameter;
-	private String propagatedType;
-	private String staticType;
+public class HoverInformation  {
+	private int offset ;
+	private int length ;
+	private String containingLibraryPath ;
+	private String containingLibraryName ;
+	private String containingClassDescription ;
+	private String dartdoc ;
+	private String elementDescription ;
+	private String elementKind ;
+	private String parameter ;
+	private String propagatedType ;
+	private String staticType ;
 	
 	public HoverInformation() {
 	}
@@ -94,5 +94,9 @@ public class HoverInformation {
 
 	public void setStaticType(String staticType) {
 		this.staticType = staticType;
+	}
+	
+	public String toString() {
+		return "HoverInformation@"+hashCode()+"[offset = "+offset+", length = "+length+", containingLibraryPath = "+containingLibraryPath+", containingLibraryName = "+containingLibraryName+", containingClassDescription = "+containingClassDescription+", dartdoc = "+dartdoc+", elementDescription = "+elementDescription+", elementKind = "+elementKind+", parameter = "+parameter+", propagatedType = "+propagatedType+", staticType = "+staticType+"]";
 	}
 }

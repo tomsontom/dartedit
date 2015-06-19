@@ -2,14 +2,14 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class Element {
-	private ElementKind kind;
-	private String name;
-	private Location location;
-	private int flags;
-	private String parameters;
-	private String returnType;
-	private String typeParameters;
+public class Element  {
+	private ElementKind kind ;
+	private String name ;
+	private Location location ;
+	private int flags ;
+	private String parameters ;
+	private String returnType ;
+	private String typeParameters ;
 	
 	public Element() {
 	}
@@ -62,5 +62,9 @@ public class Element {
 
 	public void setTypeParameters(String typeParameters) {
 		this.typeParameters = typeParameters;
+	}
+	
+	public String toString() {
+		return "Element@"+hashCode()+"[kind = "+kind+", name = "+name+", location = "+location+", flags = "+flags+", parameters = "+parameters+", returnType = "+returnType+", typeParameters = "+typeParameters+"]";
 	}
 }

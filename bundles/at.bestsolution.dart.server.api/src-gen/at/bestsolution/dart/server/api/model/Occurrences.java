@@ -2,10 +2,10 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class Occurrences {
-	private Element element;
-	private int[] offsets;
-	private int length;
+public class Occurrences  {
+	private Element element ;
+	private int[] offsets ;
+	private int length ;
 	
 	public Occurrences() {
 	}
@@ -30,5 +30,9 @@ public class Occurrences {
 
 	public void setLength(int length) {
 		this.length = length;
+	}
+	
+	public String toString() {
+		return "Occurrences@"+hashCode()+"[element = "+element+", offsets = "+offsets+", length = "+length+"]";
 	}
 }

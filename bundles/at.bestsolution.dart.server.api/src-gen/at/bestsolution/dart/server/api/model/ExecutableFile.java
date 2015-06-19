@@ -2,9 +2,9 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class ExecutableFile {
-	private java.lang.String file;
-	private ExecutableKind kind;
+public class ExecutableFile  {
+	private java.lang.String file ;
+	private ExecutableKind kind ;
 	
 	public ExecutableFile() {
 	}
@@ -22,5 +22,9 @@ public class ExecutableFile {
 
 	public void setKind(ExecutableKind kind) {
 		this.kind = kind;
+	}
+	
+	public String toString() {
+		return "ExecutableFile@"+hashCode()+"[file = "+file+", kind = "+kind+"]";
 	}
 }

@@ -2,10 +2,10 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class RefactoringProblem {
-	private RefactoringProblemSeverity severity;
-	private String message;
-	private Location location;
+public class RefactoringProblem  {
+	private RefactoringProblemSeverity severity ;
+	private String message ;
+	private Location location ;
 	
 	public RefactoringProblem() {
 	}
@@ -30,5 +30,9 @@ public class RefactoringProblem {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+	
+	public String toString() {
+		return "RefactoringProblem@"+hashCode()+"[severity = "+severity+", message = "+message+", location = "+location+"]";
 	}
 }

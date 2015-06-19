@@ -3,7 +3,7 @@ package at.bestsolution.dart.server.api.model;
 import java.util.Map;
 
 public class CompletionResultsNotification {
-	private CompletionId id;
+	private java.lang.String id;
 	private int replacementOffset;
 	private int replacementLength;
 	private CompletionSuggestion[] results;
@@ -12,11 +12,11 @@ public class CompletionResultsNotification {
 	public CompletionResultsNotification() {
 	}
 	
-	public CompletionId getId() {
+	public java.lang.String getId() {
 		return this.id;
 	}
 	
-	public void setId(CompletionId id) {
+	public void setId(java.lang.String id) {
 		this.id = id;
 	}
 	public int getReplacementOffset() {

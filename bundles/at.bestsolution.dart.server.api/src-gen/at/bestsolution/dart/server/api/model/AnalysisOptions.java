@@ -2,14 +2,14 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class AnalysisOptions {
-	private boolean enableAsync;
-	private boolean enableDeferredLoading;
-	private boolean enableEnums;
-	private boolean enableNullAwareOperators;
-	private boolean generateDart2jsHints;
-	private boolean generateHints;
-	private boolean generateLints;
+public class AnalysisOptions  {
+	private boolean enableAsync ;
+	private boolean enableDeferredLoading ;
+	private boolean enableEnums ;
+	private boolean enableNullAwareOperators ;
+	private boolean generateDart2jsHints ;
+	private boolean generateHints ;
+	private boolean generateLints ;
 	
 	public AnalysisOptions() {
 	}
@@ -62,5 +62,9 @@ public class AnalysisOptions {
 
 	public void setGenerateLints(boolean generateLints) {
 		this.generateLints = generateLints;
+	}
+	
+	public String toString() {
+		return "AnalysisOptions@"+hashCode()+"[enableAsync = "+enableAsync+", enableDeferredLoading = "+enableDeferredLoading+", enableEnums = "+enableEnums+", enableNullAwareOperators = "+enableNullAwareOperators+", generateDart2jsHints = "+generateDart2jsHints+", generateHints = "+generateHints+", generateLints = "+generateLints+"]";
 	}
 }

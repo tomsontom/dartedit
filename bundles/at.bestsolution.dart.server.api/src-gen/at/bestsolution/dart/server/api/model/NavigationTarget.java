@@ -2,13 +2,13 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class NavigationTarget {
-	private ElementKind kind;
-	private int fileIndex;
-	private int offset;
-	private int length;
-	private int startLine;
-	private int startColumn;
+public class NavigationTarget  {
+	private ElementKind kind ;
+	private int fileIndex ;
+	private int offset ;
+	private int length ;
+	private int startLine ;
+	private int startColumn ;
 	
 	public NavigationTarget() {
 	}
@@ -54,5 +54,9 @@ public class NavigationTarget {
 
 	public void setStartColumn(int startColumn) {
 		this.startColumn = startColumn;
+	}
+	
+	public String toString() {
+		return "NavigationTarget@"+hashCode()+"[kind = "+kind+", fileIndex = "+fileIndex+", offset = "+offset+", length = "+length+", startLine = "+startLine+", startColumn = "+startColumn+"]";
 	}
 }

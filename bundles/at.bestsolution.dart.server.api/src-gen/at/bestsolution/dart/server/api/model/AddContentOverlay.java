@@ -2,8 +2,9 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class AddContentOverlay {
-	private String content;
+public class AddContentOverlay extends Overlay {
+	private String content ;
+	private String type  = "add";
 	
 	public AddContentOverlay() {
 	}
@@ -14,5 +15,16 @@ public class AddContentOverlay {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public String toString() {
+		return "AddContentOverlay@"+hashCode()+"[content = "+content+", type = "+type+"]";
 	}
 }

@@ -66,13 +66,16 @@ public class LocalDartServer implements at.bestsolution.dart.server.api.DartServ
 			synchronized (p) {
 				String r = "{ \"id\" : \"" + requestId + "\", \"method\" : \""+method+"\" ";
 				if( request != null ) {
-					r += ", \"result\" :  " + new Gson().toJson(request);
+					r += ", \"params\" :  " + new Gson().toJson(request);
 				}
 				r += "}";
 				r = r.replace('\n', ' ');
 				r = r.replace('\r', ' ');
+				r += "\n";
 				try {
+					System.err.println("Sending: " + r);
 					p.getOutputStream().write(r.getBytes());
+					p.getOutputStream().flush();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

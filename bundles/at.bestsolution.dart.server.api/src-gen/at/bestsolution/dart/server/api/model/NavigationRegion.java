@@ -2,10 +2,10 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class NavigationRegion {
-	private int offset;
-	private int length;
-	private int[] targets;
+public class NavigationRegion  {
+	private int offset ;
+	private int length ;
+	private int[] targets ;
 	
 	public NavigationRegion() {
 	}
@@ -30,5 +30,9 @@ public class NavigationRegion {
 
 	public void setTargets(int[] targets) {
 		this.targets = targets;
+	}
+	
+	public String toString() {
+		return "NavigationRegion@"+hashCode()+"[offset = "+offset+", length = "+length+", targets = "+targets+"]";
 	}
 }

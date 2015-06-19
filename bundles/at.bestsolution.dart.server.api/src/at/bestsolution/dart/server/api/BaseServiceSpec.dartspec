@@ -1,7 +1,7 @@
 package at.bestsolution.dart.server.api
 
 javatype java.lang.String
-javatype boolean     
+javatype boolean
 javatype int
 javatype java.util.Map
 javatype long
@@ -13,6 +13,7 @@ enum model.ServerService ( STATUS )
 cust model.AddContentOverlay extends model.Overlay {
 	## The new content of the file.
 	java.lang.String content
+	java.lang.String type = '"add"'
 }
 
 ## An indication of an error, warning, or hint that was produced by the analysis. 
@@ -109,12 +110,11 @@ cust model.AnalysisStatus {
 cust model.ChangeContentOverlay extends model.Overlay {
 	## The edits to be applied to the file.
 	model.SourceEdit[] edits
+	java.lang.String type = '"change"'
 }
 
 ## An identifier used to associate completion results with a completion request.
-cust model.CompletionId {
-	
-}
+alias model.CompletionId as java.lang.String
 
 ##  A suggestion for how to complete partially entered text. Many of the fields are optional, depending on the kind of element being suggested. 
 cust model.CompletionSuggestion {
@@ -539,7 +539,7 @@ enum model.RefactoringProblemSeverity (
 ## A directive to remove an existing file content overlay. After processing this directive, the file contents will once again be read from the file system.
 ## If this directive is used on a file that doesn't currently have a content overlay, it has no effect.  
 cust model.RemoveContentOverlay extends model.Overlay {
-	
+	java.lang.String type = '"remove"'
 }
 
 ##  An indication of a problem with the execution of the server, typically in response to a request. 

@@ -2,10 +2,10 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class HighlightRegion {
-	private HighlightRegionType type;
-	private int offset;
-	private int length;
+public class HighlightRegion  {
+	private HighlightRegionType type ;
+	private int offset ;
+	private int length ;
 	
 	public HighlightRegion() {
 	}
@@ -30,5 +30,9 @@ public class HighlightRegion {
 
 	public void setLength(int length) {
 		this.length = length;
+	}
+	
+	public String toString() {
+		return "HighlightRegion@"+hashCode()+"[type = "+type+", offset = "+offset+", length = "+length+"]";
 	}
 }

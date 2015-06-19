@@ -2,26 +2,26 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class CompletionSuggestion {
-	private CompletionSuggestionKind kind;
-	private int relevance;
-	private String completion;
-	private int selectionOffset;
-	private int selectionLength;
-	private boolean isDeprecated;
-	private boolean isPotential;
-	private String docSummary;
-	private String docComplete;
-	private String declaringType;
-	private Element element;
-	private String returnType;
-	private String[] parameterNames;
-	private String[] parameterTypes;
-	private int requiredParameterCount;
-	private boolean hasNamedParameters;
-	private String parameterName;
-	private String parameterType;
-	private String importUri;
+public class CompletionSuggestion  {
+	private CompletionSuggestionKind kind ;
+	private int relevance ;
+	private String completion ;
+	private int selectionOffset ;
+	private int selectionLength ;
+	private boolean isDeprecated ;
+	private boolean isPotential ;
+	private String docSummary ;
+	private String docComplete ;
+	private String declaringType ;
+	private Element element ;
+	private String returnType ;
+	private String[] parameterNames ;
+	private String[] parameterTypes ;
+	private int requiredParameterCount ;
+	private boolean hasNamedParameters ;
+	private String parameterName ;
+	private String parameterType ;
+	private String importUri ;
 	
 	public CompletionSuggestion() {
 	}
@@ -158,5 +158,9 @@ public class CompletionSuggestion {
 
 	public void setImportUri(String importUri) {
 		this.importUri = importUri;
+	}
+	
+	public String toString() {
+		return "CompletionSuggestion@"+hashCode()+"[kind = "+kind+", relevance = "+relevance+", completion = "+completion+", selectionOffset = "+selectionOffset+", selectionLength = "+selectionLength+", isDeprecated = "+isDeprecated+", isPotential = "+isPotential+", docSummary = "+docSummary+", docComplete = "+docComplete+", declaringType = "+declaringType+", element = "+element+", returnType = "+returnType+", parameterNames = "+parameterNames+", parameterTypes = "+parameterTypes+", requiredParameterCount = "+requiredParameterCount+", hasNamedParameters = "+hasNamedParameters+", parameterName = "+parameterName+", parameterType = "+parameterType+", importUri = "+importUri+"]";
 	}
 }

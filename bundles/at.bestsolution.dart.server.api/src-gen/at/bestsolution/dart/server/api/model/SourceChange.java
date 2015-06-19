@@ -2,11 +2,11 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class SourceChange {
-	private String message;
-	private SourceFileEdit[] edits;
-	private LinkedEditGroup[] linkedEditGroups;
-	private Position selection;
+public class SourceChange  {
+	private String message ;
+	private SourceFileEdit[] edits ;
+	private LinkedEditGroup[] linkedEditGroups ;
+	private Position selection ;
 	
 	public SourceChange() {
 	}
@@ -38,5 +38,9 @@ public class SourceChange {
 
 	public void setSelection(Position selection) {
 		this.selection = selection;
+	}
+	
+	public String toString() {
+		return "SourceChange@"+hashCode()+"[message = "+message+", edits = "+edits+", linkedEditGroups = "+linkedEditGroups+", selection = "+selection+"]";
 	}
 }

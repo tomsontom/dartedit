@@ -2,12 +2,12 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class RefactoringMethodParameter {
-	private String id;
-	private RefactoringMethodParameterKind kind;
-	private String type;
-	private String name;
-	private String parameters;
+public class RefactoringMethodParameter  {
+	private String id ;
+	private RefactoringMethodParameterKind kind ;
+	private String type ;
+	private String name ;
+	private String parameters ;
 	
 	public RefactoringMethodParameter() {
 	}
@@ -46,5 +46,9 @@ public class RefactoringMethodParameter {
 
 	public void setParameters(String parameters) {
 		this.parameters = parameters;
+	}
+	
+	public String toString() {
+		return "RefactoringMethodParameter@"+hashCode()+"[id = "+id+", kind = "+kind+", type = "+type+", name = "+name+", parameters = "+parameters+"]";
 	}
 }

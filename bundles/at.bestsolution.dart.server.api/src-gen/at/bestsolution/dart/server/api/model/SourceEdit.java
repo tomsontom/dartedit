@@ -2,11 +2,11 @@ package at.bestsolution.dart.server.api.model;
 
 import java.util.Map;
 
-public class SourceEdit {
-	private int offset;
-	private int length;
-	private String replacement;
-	private String id;
+public class SourceEdit  {
+	private int offset ;
+	private int length ;
+	private String replacement ;
+	private String id ;
 	
 	public SourceEdit() {
 	}
@@ -38,5 +38,9 @@ public class SourceEdit {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String toString() {
+		return "SourceEdit@"+hashCode()+"[offset = "+offset+", length = "+length+", replacement = "+replacement+", id = "+id+"]";
 	}
 }

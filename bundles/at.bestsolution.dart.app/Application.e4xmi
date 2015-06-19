@@ -18,14 +18,17 @@
     <variables>activeInput</variables>
   </children>
   <handlers xmi:id="_zP68gBRvEeWx7uBqMKmxpw" elementId="at.bestsolution.dart.app.handler.0" contributionURI="bundleclass://at.bestsolution.dart.app/at.bestsolution.dart.app.handlers.SaveFile" command="_w-V7cBRvEeWx7uBqMKmxpw"/>
+  <handlers xmi:id="_25cqkBZ1EeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.handler.1" contributionURI="bundleclass://at.bestsolution.dart.app/at.bestsolution.dart.app.handlers.SwitchTheme" command="_1UMkABZ1EeWLWqhHszNLKg"/>
   <bindingTables xmi:id="_vA-P0BRvEeWx7uBqMKmxpw" elementId="at.bestsolution.dart.app.bindingtable.0" bindingContext="_FgwfwAU_EeWaU_pgkGpdwA">
     <bindings xmi:id="_wKpNoBRvEeWx7uBqMKmxpw" elementId="at.bestsolution.dart.app.keybinding.0" keySequence="M1+S" command="_w-V7cBRvEeWx7uBqMKmxpw"/>
+    <bindings xmi:id="_z7MwwBZ1EeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.keybinding.1" keySequence="M1+T" command="_1UMkABZ1EeWLWqhHszNLKg"/>
   </bindingTables>
   <rootContext xmi:id="_FgwfwAU_EeWaU_pgkGpdwA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_FgwfwgU_EeWaU_pgkGpdwA" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_FgwfwwU_EeWaU_pgkGpdwA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <commands xmi:id="_w-V7cBRvEeWx7uBqMKmxpw" elementId="at.bestsolution.dart.app.save" commandName="Save File"/>
+  <commands xmi:id="_1UMkABZ1EeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.command.switchtheme" commandName="Switch Theme"/>
   <addons xmi:id="_FgwfxAU_EeWaU_pgkGpdwA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_FgwfxQU_EeWaU_pgkGpdwA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_FgwfxgU_EeWaU_pgkGpdwA" elementId="org.eclipse.fx.ui.keybindings.e4.service" contributionURI="bundleclass://org.eclipse.fx.ui.keybindings.e4/org.eclipse.fx.ui.keybindings.e4.BindingServiceAddon"/>

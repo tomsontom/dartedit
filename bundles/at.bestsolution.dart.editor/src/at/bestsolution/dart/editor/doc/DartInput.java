@@ -11,13 +11,14 @@ import java.util.Collections;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.fx.code.compensator.editor.Input;
 import org.eclipse.fx.code.compensator.editor.TextEditor;
 import org.eclipse.fx.code.compensator.editor.URIProvider;
 import org.eclipse.fx.core.URI;
-import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 
+import at.bestsolution.dart.editor.internal.DartRemoteFileManager;
 import at.bestsolution.dart.server.api.DartServer;
 import at.bestsolution.dart.server.api.model.AddContentOverlay;
 import at.bestsolution.dart.server.api.model.ChangeContentOverlay;
@@ -30,16 +31,23 @@ public class DartInput implements Input<String>, URIProvider {
 	private String data;
 	private DartServer server;
 	private boolean activeContentOverlay;
-
+	private IEventBroker broker;
+	
 	@Inject
-	public DartInput(DartServer server, @Named(TextEditor.DOCUMENT_URL) String url) {
+	public DartInput(DartServer server, IEventBroker broker, @Named(TextEditor.DOCUMENT_URL) String url) {
 		this.path = Paths.get(java.net.URI.create(url));
 		this.server = server;
+		this.broker = broker;
+		this.broker.send(DartRemoteFileManager.DART_INPUT_CREATED, this.path.toAbsolutePath().toString());
 	}
 
 	@Override
 	public URI getURI() {
 		return URI.create(path.toUri().toString());
+	}
+	
+	public Path getPath() {
+		return path;
 	}
 
 	@Override
@@ -89,10 +97,17 @@ public class DartInput implements Input<String>, URIProvider {
 
 	@Override
 	public void dispose() {
+		if( activeContentOverlay ) {
+			server.getService(ServiceAnalysis.class).updateContent(Collections.singletonMap(path.toAbsolutePath().toString(), new RemoveContentOverlay()));
+			activeContentOverlay = false;
+		}
+		this.broker.send(DartRemoteFileManager.DART_INPUT_CREATED, this.path.toAbsolutePath().toString());
+		
 		this.data = null;
-		this.path = null;
+		this.path = null;		
 	}
 
+	//TODO Move this to DartRemoteFileManager.java
 	public void documentChanged(IDocument doc, int fOffset, int fLength, String fText) {
 		if( ! activeContentOverlay ) {
 			AddContentOverlay overlay = new AddContentOverlay();

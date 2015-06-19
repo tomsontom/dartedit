@@ -37,4 +37,5 @@
   <addons xmi:id="_FgwfyQU_EeWaU_pgkGpdwA" elementId="org.eclipse.fx.ui.keybindings.e4.model" contributionURI="bundleclass://org.eclipse.fx.ui.keybindings.e4/org.eclipse.fx.ui.keybindings.e4.BindingProcessingAddon"/>
   <addons xmi:id="_FgwfygU_EeWaU_pgkGpdwA" elementId="org.eclipse.e4.ui.workbench.addons.HandlerProcessingAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_lceawBRvEeWx7uBqMKmxpw" elementId="at.bestsolution.dart.app.addon.0" contributionURI="bundleclass://at.bestsolution.dart.app/at.bestsolution.dart.app.addon.DirtyStateTrackerAddon"/>
+  <addons xmi:id="_ZmNHEBaCEeWLWqhHszNLKg" elementId="at.bestsolution.dart.app.addon.1" contributionURI="bundleclass://at.bestsolution.dart.editor/at.bestsolution.dart.editor.internal.DartRemoteFileManager"/>
 </application:Application>

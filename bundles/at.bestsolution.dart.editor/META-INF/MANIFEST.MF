@@ -24,8 +24,10 @@ Service-Component: OSGI-INF/services/at.bestsolution.dart.editor.DartServerCF.xm
  OSGI-INF/services/at.bestsolution.dart.editor.doc.DartDocumentFactory.xml,
  OSGI-INF/services/at.bestsolution.dart.editor.internal.DartHSLModelProvider.xml,
  OSGI-INF/services/at.bestsolution.dart.editor.marker.DartAnnotationModelFactory.xml,
- OSGI-INF/services/at.bestsolution.dart.editor.internal.DartSourceConfigAndPartitionerFactory.xml
+ OSGI-INF/services/at.bestsolution.dart.editor.internal.DartSourceConfigAndPartitionerFactory.xml,
+ OSGI-INF/services/at.bestsolution.dart.editor.outline.DartOutlineFactory.xml
 Import-Package: org.eclipse.fx.core,
  org.eclipse.fx.ui.services.theme,
- org.osgi.service.component.annotations;version="1.2.0"
+ org.osgi.service.component.annotations;version="1.2.0",
+ org.osgi.service.event;version="1.3.1"
 Bundle-ActivationPolicy: lazy

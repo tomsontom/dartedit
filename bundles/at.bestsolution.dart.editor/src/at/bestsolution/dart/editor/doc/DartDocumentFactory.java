@@ -34,7 +34,6 @@ public class DartDocumentFactory implements DocumentFactory {
 				
 				@Override
 				public void documentChanged(DocumentEvent event) {
-					System.err.println("DOCUMENT CHANGED!!!!");
 					DartInput di = (DartInput) input;
 					di.documentChanged(event.fDocument, event.fOffset, event.fLength, event.fText);
 				}

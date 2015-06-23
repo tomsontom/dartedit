@@ -46,6 +46,7 @@ public class DartOutlineFactory implements OutlineFactory {
 
 		@Inject
 		public DartOutline(UISynchronize sync, Input<?> input, GraphicsLoader graphicsLoader, DartServer server) {
+			System.err.println("=============> " + this);
 			this.sync = sync;
 			this.input = (DartInput) input;
 			registration = server.getService(ServiceAnalysis.class).outline(this::handleOutlineChange);
@@ -57,13 +58,14 @@ public class DartOutlineFactory implements OutlineFactory {
 			if( input.getPath().toAbsolutePath().toString().equals(n.getFile()) ) {
 				System.err.println("SETTING NEW ITEMS");
 				List<DartOutlineItem> list = Stream.of(n.getOutline().getChildren()).map(o -> new DartOutlineItem(null, o)).collect(Collectors.toList());
+				System.err.println("THE LIST: " + list);
 				sync.asyncExec(() -> items.setAll(list));
 			}
 		}
 
 		@Override
 		public ObservableList<OutlineItem> getRootItems() {
-			return FXCollections.emptyObservableList();
+			return items;
 		}
 		
 		@PreDestroy
@@ -98,7 +100,11 @@ public class DartOutlineFactory implements OutlineFactory {
 
 		@Override
 		public ObservableList<OutlineItem> getChildren() {
-			return FXCollections.observableArrayList(Stream.of(outline.getChildren()).map( o -> new DartOutlineItem(this,o)).collect(Collectors.toList()));
+			if( outline.getChildren() != null ) {
+				return FXCollections.observableArrayList(Stream.of(outline.getChildren()).map( o -> new DartOutlineItem(this,o)).collect(Collectors.toList()));	
+			} else {
+				return FXCollections.emptyObservableList();
+			}
 		}
 		
 	}

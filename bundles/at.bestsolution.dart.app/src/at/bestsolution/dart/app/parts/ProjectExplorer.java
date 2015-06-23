@@ -2,6 +2,7 @@ package at.bestsolution.dart.app.parts;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MStackElement;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.fx.core.URI;
@@ -58,7 +60,11 @@ public class ProjectExplorer {
 	}
 	
 	private void handle(FileItem item) {
-		if( ! partStack.getChildren().stream().map( p -> p.getPersistedState().get("documentUrl")).filter( c -> item.getUri().endsWith(c)).findFirst().isPresent() ) {
+		Optional<MStackElement> first = partStack.getChildren().stream().filter( c -> item.getUri().endsWith(c.getPersistedState().get("documentUrl"))).findFirst();
+		
+		if( first.isPresent() ) {
+			partService.activate((MPart) first.get());
+		} else {
 			MPart part = modelService.createModelElement(MPart.class);
 			part.setCloseable(true);
 			part.setLabel(((Path)item.getNativeResourceObject()).getFileName().toString());

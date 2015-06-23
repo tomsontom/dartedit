@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.fx.code.compensator.editor.Input;
@@ -17,9 +16,7 @@ import org.osgi.service.component.annotations.Component;
 
 import at.bestsolution.dart.editor.doc.DartInput;
 import at.bestsolution.dart.server.api.DartServer;
-import at.bestsolution.dart.server.api.Registration;
-import at.bestsolution.dart.server.api.model.AnalysisOutlineNotification;
-import at.bestsolution.dart.server.api.services.ServiceAnalysis;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -39,38 +36,30 @@ public class DartOutlineFactory implements OutlineFactory {
 
 	private static class DartOutline implements Outline {
 
-		private Registration registration;
 		private UISynchronize sync;
 		private ObservableList<OutlineItem> items = FXCollections.observableArrayList();
 		private DartInput input;
 
 		@Inject
 		public DartOutline(UISynchronize sync, Input<?> input, GraphicsLoader graphicsLoader, DartServer server) {
-			System.err.println("=============> " + this);
 			this.sync = sync;
 			this.input = (DartInput) input;
-			registration = server.getService(ServiceAnalysis.class).outline(this::handleOutlineChange);
+			this.input.outlineProperty().addListener( this::handleOutlineChange );
+			handleOutlineChange(this.input.outlineProperty());
 		}
 		
-		private void handleOutlineChange(AnalysisOutlineNotification n) {
-			System.err.println("UPDATING: " + n);
-			System.err.println("Compare; " + input.getPath().toAbsolutePath() + " => " + n.getFile());
-			if( input.getPath().toAbsolutePath().toString().equals(n.getFile()) ) {
-				System.err.println("SETTING NEW ITEMS");
-				List<DartOutlineItem> list = Stream.of(n.getOutline().getChildren()).map(o -> new DartOutlineItem(null, o)).collect(Collectors.toList());
-				System.err.println("THE LIST: " + list);
-				sync.asyncExec(() -> items.setAll(list));
+		private void handleOutlineChange(Observable obs) {
+			if( this.input.outlineProperty().get() != null ) {
+				List<DartOutlineItem> list = Stream.of(this.input.outlineProperty().get().getChildren()).map(o -> new DartOutlineItem(null, o)).collect(Collectors.toList());
+				sync.asyncExec(() -> items.setAll(list));	
+			} else {
+				sync.asyncExec(() -> items.clear());
 			}
 		}
-
+		
 		@Override
 		public ObservableList<OutlineItem> getRootItems() {
 			return items;
-		}
-		
-		@PreDestroy
-		void close() {
-			registration.dispose();
 		}
 	}
 	

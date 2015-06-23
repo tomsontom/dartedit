@@ -20,11 +20,16 @@ import org.eclipse.jface.text.IDocument;
 
 import at.bestsolution.dart.editor.internal.DartRemoteFileManager;
 import at.bestsolution.dart.server.api.DartServer;
+import at.bestsolution.dart.server.api.Registration;
 import at.bestsolution.dart.server.api.model.AddContentOverlay;
+import at.bestsolution.dart.server.api.model.AnalysisOutlineNotification;
 import at.bestsolution.dart.server.api.model.ChangeContentOverlay;
+import at.bestsolution.dart.server.api.model.Outline;
 import at.bestsolution.dart.server.api.model.RemoveContentOverlay;
 import at.bestsolution.dart.server.api.model.SourceEdit;
 import at.bestsolution.dart.server.api.services.ServiceAnalysis;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 public class DartInput implements Input<String>, URIProvider {
 	private Path path;
@@ -32,13 +37,27 @@ public class DartInput implements Input<String>, URIProvider {
 	private DartServer server;
 	private boolean activeContentOverlay;
 	private IEventBroker broker;
+	private final ObjectProperty<Outline> outline = new SimpleObjectProperty<>();
+	private Registration outlineReg;
 	
 	@Inject
 	public DartInput(DartServer server, IEventBroker broker, @Named(TextEditor.DOCUMENT_URL) String url) {
 		this.path = Paths.get(java.net.URI.create(url));
 		this.server = server;
 		this.broker = broker;
+		ServiceAnalysis service = server.getService(ServiceAnalysis.class);
+		outlineReg = service.outline(this::handleOutlineChange);
 		this.broker.send(DartRemoteFileManager.DART_INPUT_CREATED, this.path.toAbsolutePath().toString());
+	}
+	
+	private void handleOutlineChange(AnalysisOutlineNotification n) {
+		if( path.toAbsolutePath().toString().equals(n.getFile()) ) {
+			outline.set(n.getOutline());
+		}
+	}
+	
+	public ObjectProperty<Outline> outlineProperty() {
+		return outline;
 	}
 
 	@Override
@@ -100,6 +119,9 @@ public class DartInput implements Input<String>, URIProvider {
 		if( activeContentOverlay ) {
 			server.getService(ServiceAnalysis.class).updateContent(Collections.singletonMap(path.toAbsolutePath().toString(), new RemoveContentOverlay()));
 			activeContentOverlay = false;
+		}
+		if( outlineReg != null ) {
+			outlineReg.dispose();
 		}
 		this.broker.send(DartRemoteFileManager.DART_INPUT_CREATED, this.path.toAbsolutePath().toString());
 		

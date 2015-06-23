@@ -27,7 +27,7 @@ public class DartRemoteFileManager {
 		eventBroker.subscribe(DART_INPUT_CREATED, this::handleInputOpened);
 		eventBroker.subscribe(DART_INPUT_DISPOSED, this::handleInputOpened);
 	}
-	
+
 	void handleInputOpened(Event e) {
 		synchronized (activeInputList) {
 			activeInputList.add((String)e.getProperty(IEventBroker.DATA));
